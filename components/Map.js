@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { useSelector } from "react-redux";
 import tw from "twrnc";
-import { selectOrigin } from "../slices/navSlive";
+import { selectOrigin, selectDestination } from "../slices/navSlive";
+import { GOOGLE_MAPS_APIKEY } from "@env";
+import MapViewDirections from "react-native-maps-directions";
 
 const Map = () => {
   const origin = useSelector(selectOrigin);
+  const destination = useSelector(selectDestination);
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (!origin || !destination) return;
+    mapRef.current.fitToSuppliedMarker(["origin", "destination"], {
+      edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+    });
+  }, [origin, destination]);
   return (
     <MapView
       style={tw`flex-1`}
@@ -20,6 +31,15 @@ const Map = () => {
         longitudeDelta: 0.005,
       }}
     >
+      {origin && destination && (
+        <MapViewDirections
+          origin={origin.description}
+          destination={destination.description}
+          apikey={GOOGLE_MAPS_APIKEY}
+          strokeWidth={3}
+          strokeColor="red"
+        />
+      )}
       {/* {origin?.location && (
         <Marker
           coordinate={{
@@ -36,6 +56,24 @@ const Map = () => {
         title="Origin"
         description="Your start point"
         identifier="origin"
+      />
+      {/* {destination?.location && (
+        <Marker
+          coordinate={{
+            latitude: destination.location.lat,
+            longitude: destination.location.lng,
+          }}
+        />
+      )} */}
+      {/* 17.964932328717936, 102.67671269198968 */}
+      <Marker
+        coordinate={{
+          latitude: 17.964932328717936,
+          longitude: 102.67671269198968,
+        }}
+        title="Destination"
+        description="Your end point"
+        identifier="destination"
       />
     </MapView>
   );

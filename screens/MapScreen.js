@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import tw from "twrnc";
 import Map from "../components/Map";
 import MapView from "react-native-maps";
@@ -9,8 +9,9 @@ import RideOptionsCar from "../components/RideOptionsCar";
 const MapScreen = () => {
   const Stack = createNativeStackNavigator();
   return (
+    
     <View>
-      <Text>MapScreen</Text>
+      <Text></Text>
       <View style={tw`h-1/2`}>
         <Map />
       </View>

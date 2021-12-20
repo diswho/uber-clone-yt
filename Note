@@ -12,7 +12,7 @@ react-native-vector-icons
 react-native-safe-area-view 
 react-native-safe-area-context
 react-native-dotenv
-
+expo install react-native-maps
 
 tailwind react native classname
 
