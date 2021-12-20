@@ -9,10 +9,16 @@ import {
   View,
 } from "react-native";
 import { Icon } from "react-native-elements";
+import { useSelector } from "react-redux";
 import tw from "twrnc";
+import { selectTravelTimeInformation } from "../slices/navSlive";
+
+const SURGE_CHARGE_RATE = 1.5;
+
 const RideOptionsCar = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
+  const travelTimeInformation = useSelector(selectTravelTimeInformation);
   const data = [
     {
       id: "Uber-X-123",
@@ -42,7 +48,9 @@ const RideOptionsCar = () => {
         >
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
-        <Text style={tw`text-center py-3 text-xl`}>Select a Rider!</Text>
+        <Text style={tw`text-center py-3 text-xl`}>
+          Select a Rider - {travelTimeInformation?.distance.text}
+        </Text>
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
@@ -62,13 +70,18 @@ const RideOptionsCar = () => {
               />
               <View style={tw`-ml-6`}>
                 <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                <Text>Travel time...</Text>
+                <Text>{travelTimeInformation?.duration.text}Travel time</Text>
               </View>
-              <Text style={tw`text-xl`}>$99</Text>
+              <Text style={tw`text-xl`}>
+                {(travelTimeInformation?.duration.value *
+                  SURGE_CHARGE_RATE *
+                  multiplier) /
+                  100}
+              </Text>
             </TouchableOpacity>
           )}
         />
-        <View>
+        <View style={tw`mt-auto border-t border-gray-200`}>
           <TouchableOpacity
             style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-300"}`}
             disabled={!selected}

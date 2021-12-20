@@ -2,7 +2,13 @@ import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Icon } from "react-native-elements";
 import tw from "twrnc";
+import { selectOrigin, selectDestination } from "../slices/navSlive";
+import { useSelector } from "react-redux";
+
 const NavFavourities = () => {
+  const origin = useSelector(selectOrigin);
+  const destination = useSelector(selectDestination);
+
   const data = [
     {
       id: "123",

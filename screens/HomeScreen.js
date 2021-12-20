@@ -28,7 +28,6 @@ const HomeScreen = () => {
           returnKeyType={"search"}
           minLength={2}
           onPress={(data, details = null) => {
-            // console.log(data, details);
             dispatch(
               setOrigin({
                 location: details.geometry.location,
