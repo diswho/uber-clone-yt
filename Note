@@ -13,6 +13,15 @@ react-native-safe-area-view
 react-native-safe-area-context
 react-native-dotenv
 expo install react-native-maps
+npm install react-native-localize 
+@formatjs/intl-pluralrules 
+@formatjs/intl-getcanonicallocales 
+@formatjs/intl-listformat 
+@formatjs/intl-displaynames 
+@formatjs/intl-locale 
+@formatjs/intl-datetimeformat 
+@formatjs/intl-numberformat 
+@formatjs/intl-relativetimeformat --save
 
 tailwind react native classname
 
