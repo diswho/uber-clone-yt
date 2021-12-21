@@ -49,7 +49,7 @@ const RideOptionsCar = () => {
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
         <Text style={tw`text-center py-3 text-xl`}>
-          Select a Rider - {travelTimeInformation?.distance.text}
+          Select a Rider - {travelTimeInformation?.distance?.text}
         </Text>
         <FlatList
           data={data}
@@ -70,10 +70,10 @@ const RideOptionsCar = () => {
               />
               <View style={tw`-ml-6`}>
                 <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                <Text>{travelTimeInformation?.duration.text}Travel time</Text>
+                <Text>{travelTimeInformation?.duration?.text}Travel time</Text>
               </View>
               <Text style={tw`text-xl`}>
-                {(travelTimeInformation?.duration.value *
+                {(travelTimeInformation?.duration?.value *
                   SURGE_CHARGE_RATE *
                   multiplier) /
                   100}
