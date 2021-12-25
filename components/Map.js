@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { useDispatch, useSelector } from "react-redux";
-import tw from "twrnc";
 import { selectOrigin, selectDestination, setTravelTimeInformation } from "../slices/navSlive";
 import { GOOGLE_MAPS_APIKEY } from "@env";
+import tw from "twrnc";
 import MapViewDirections from "react-native-maps-directions";
 
 const Map = () => {

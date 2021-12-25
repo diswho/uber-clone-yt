@@ -68,11 +68,6 @@ const NavigateCard = () => {
             <Text style={tw`text-black text-center`}>Eats</Text>
           </TouchableOpacity>
         </View>
-        {/* <View>
-          <TouchableOpacity style={tw`absolute top-3 left-5 p-3 rounded-full`}>
-            <Icon name="chevron-left" type="fontawesome" />
-          </TouchableOpacity>
-        </View> */}
       </View>
     </SafeAreaView>
   );

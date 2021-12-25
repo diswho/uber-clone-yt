@@ -1,16 +1,16 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import tw from "twrnc";
-import Map from "../components/Map";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import NavigateCard from "../components/NavigateCard";
-import RideOptionsCar from "../components/RideOptionsCar";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
+import tw from "twrnc";
+import Map from "../components/Map";
+import NavigateCard from "../components/NavigateCard";
+import RideOptionsCar from "../components/RideOptionsCar";
 
 const MapScreen = () => {
-  const Stack = createNativeStackNavigator();
   const navigation = useNavigation();
+  const Stack = createNativeStackNavigator();
   return (
     <View>
       <TouchableOpacity

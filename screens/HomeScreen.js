@@ -1,11 +1,11 @@
 import React from "react";
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import tw from "twrnc";
-import NavOptions from "../components/NavOptions";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlive";
+import NavOptions from "../components/NavOptions";
 import NavFavourities from "../components/NavFavourities";
 
 const HomeScreen = () => {
